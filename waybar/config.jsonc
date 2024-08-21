@@ -1,9 +1,5 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-   // "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
     "margin": "5 8 2 8",
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -13,8 +9,6 @@
         "memory",
         "temperature",
         "power-profiles-daemon"
-   //     "sway/mode",
-//        "sway/scratchpad"
     ],
      "modules-center": [
         "clock"
@@ -41,16 +35,6 @@
             "unlocked": ""
         }
     },
-    // "sway/mode": {
-    //     "format": "<span style=\"italic\">{}</span>"
-    // },
-    // "sway/scratchpad": {
-    //     "format": "{icon} {count}",
-    //     "show-empty": false,
-    //     "format-icons": ["", ""],
-    //     "tooltip": true,
-    //     "tooltip-format": "{app}: {title}"
-    // },
     // "mpd": {
     //     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
     //     "format-disconnected": "Disconnected ",
@@ -89,7 +73,6 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
@@ -115,8 +98,8 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
-          //  "warning": 30,
+          //"good": 95,
+          //"warning": 30,
             "critical": 5
         },
          "format": "{capacity}% {icon}",
@@ -203,6 +186,39 @@
 	    "on-click-middle": "swaync-client -C",
 	    "on-double-click": "swaync-client -d"
     },
-
-    
+    "hyprland/workspaces": {
+        "format": "{icon} {windows}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "on-click": "activate",
+            "window-rewrite-default": "",
+            "window-rewrite": {
+                "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
+                "class<firefox>": "", // Windows whose classes are "firefox"
+                "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github"
+                "class<firefox> title<.*twitch|youtube.*>": "",
+                "class<google-chrome>": "",
+                "class<google-chrome> title<.*github.*>": "",
+                "class<google-chrome> title<.*twitch|youtube.*>": "",
+                "class<Alacritty>": "",
+                "class<kitty>": "",
+                "class<org.kde.konsole>": "",
+                "code": "",
+                "class<thunderbird>": "",
+                "class<vlc>": "",
+                "class<thunar>": "",
+                "class<org.gnome.Nautilus>": "",
+                "class<org.kde.dolphin>": "",
+                "class<org.kde.kate>": "",
+                "class<libreoffice-draw>": "",
+                "class<libreoffice-writer>": "",
+                "class<libreoffice-calc>": "",
+                "class<libreoffice-impress>": "",
+                "class<jetbrains-goland>": "",
+                "class<org.telegram.desktop>": "",
+                "class<Mattermost>": "󰭹",
+                "class<WebCord>": "",
+                "class<Postman>": "󱞒",
+        },
+    }
 }
